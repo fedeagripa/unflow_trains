@@ -1,0 +1,18 @@
+<% if trains.class == "Hash" %>
+  There is only 1 train coming next
+  <br/>
+  <% trains.each do |train| %>
+    debugger
+    <%= train['Traincode'] %>
+    Direction <%= train['Direction'] %>
+  <% end %>
+<% end %>
+<% if trains.class.to_s == "Array" %>
+  There are <%= trains.count %> trains coming next
+  <br/>
+  <%= trains.each do |train| %>
+    <%= train['Traincode'] %>
+    Direction <%= train['Direction'] %>
+    <br/>
+  <% end %>
+<% end %>

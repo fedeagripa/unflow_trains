@@ -1,0 +1,27 @@
+<div class="flex">
+  <div class="info">
+    <h1> Need to commute? </h1>
+    <h3> Train destinations: </h3>
+    <div class="destinations">
+      <%= @destinations.each do |d| %>
+        <div class="flex">
+          <p><%= d['StationDesc'] %> (<%= d['StationId'] %>)</p>
+          <p>(<%= d['StationCode'] %>)</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="bot">
+    <h3> Ask your travel planer for next DART departures to your destination: </h3>
+    <%= form_with url: "/question", method: :post, remote: true do |form| %>
+      <%= form.label :query, "Ask for a station:" %>
+      <%= form.text_field :query %>
+      <%= form.submit "Ask" %>
+    <% end %>
+    <br/>
+    <div id="responses">
+      No messages yet
+    </div>
+  </div>
+
+</div>
